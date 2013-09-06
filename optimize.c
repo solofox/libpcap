@@ -1139,6 +1139,7 @@ opt_deadstores(register struct block *b)
 	for (atom = 0; atom < N_ATOMS; ++atom)
 		if (last[atom] && !ATOMELEM(b->out_use, atom)) {
 			last[atom]->code = NOP;
+			b->val[atom] = 0;
 			done = 0;
 		}
 }
